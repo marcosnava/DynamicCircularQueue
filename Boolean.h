@@ -1,0 +1,15 @@
+//
+// Created by nava on 18/09/23.
+//
+
+#ifndef DAYNAMICCIRCULARQUEUE_BOOLEAN_H
+#define DAYNAMICCIRCULARQUEUE_BOOLEAN_H
+
+typedef int BOOLEAN;
+
+enum {
+    FALSE = 0,
+    TRUE
+};
+
+#endif //DAYNAMICCIRCULARQUEUE_BOOLEAN_H
