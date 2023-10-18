@@ -7,6 +7,7 @@ enum {
     MNU_NO_SELECTION = 0,
     MNU_ADD,
     MNU_REMOVE,
+    MNU_SHRINK,
     MNU_PRINT,
     MNU_QUIT
 };
@@ -15,6 +16,8 @@ enum {
 int menu();
 
 int main() {
+    Create(5);
+
     int option = MNU_NO_SELECTION;
     int value;
 
@@ -31,10 +34,10 @@ int main() {
                 {
                     printf("%d added to queue!\n", value);
                 }
-                else
-                {
-                    printf("Impossible to add. Queue is full!\n");
-                }
+//                else
+//                {
+//                    printf("Impossible to add. Queue is full!\n");
+//                }
                 break;
             case MNU_REMOVE:
                 if(Remove(&value))
@@ -46,6 +49,9 @@ int main() {
                     printf("Impossible to remove! Queue is empty!\n");
                 }
                 break;
+            case MNU_SHRINK:
+                ShrinkQueue();
+                break;
             case MNU_PRINT:
                 printQueue();
                 break;
@@ -55,6 +61,8 @@ int main() {
                 printf("Invalid option!\n");
         }
     }
+
+    Destroy();
 
     return 0;
 }
@@ -68,6 +76,7 @@ int menu()
     printf("********************\n");
     printf("* %d - Add          *\n", MNU_ADD);
     printf("* %d - Remove       *\n", MNU_REMOVE);
+    printf("* %d - Shrink       *\n", MNU_SHRINK);
     printf("* %d - Print Queue  *\n", MNU_PRINT);
     printf("* %d - Quit Program *\n", MNU_QUIT);
     printf("********************\n");
